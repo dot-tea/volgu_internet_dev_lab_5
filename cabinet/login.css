@@ -1,0 +1,13 @@
+.card {
+	width: 18rem;
+	margin: auto;
+}
+
+form {
+	padding: 10px;
+	margin: auto;
+}
+
+form h2 {
+	padding-bottom: 10px;
+}

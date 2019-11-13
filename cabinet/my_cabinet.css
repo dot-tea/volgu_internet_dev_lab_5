@@ -1,0 +1,12 @@
+input {
+	margin: auto;
+}
+
+.deletion {
+	background-color: #ffe1e1;
+	display: none;
+}
+
+.table-select {
+	float: right;
+}

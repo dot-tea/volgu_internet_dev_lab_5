@@ -1,0 +1,59 @@
+   <div class="card deletion" id="db_delete">
+	  <div class="card-header" id="delete_title">
+		Удалить кружок с id =
+	  </div>
+	  <div class="card-body">
+		<div style="text-align: center;">
+			<h2><strong id="delete_warning_message">Вы действительно хотите исключить кружок под названием </strong></h2><br>
+			<p>Все ученики, которые были в этом кружке, будут исключены. Это действие отменить невозможно!</p>
+			<form name="delete_activity" action="/cabinet/edit_activity_table.php" onsubmit="return verifyDeleteFormIntegrity()" method="post" id="delete_student">
+				<input class="form-control" type="text" hidden name="id" id="delete_form_id" placeholder="Существующее в БД id кружка (натуральное число); не менять!" value="0">
+				<input class="form-control" type="text" hidden name="mode" id="delete_form_mode" placeholder="Режим отправки формы (delete); не менять!" value="delete">
+				<button type="submit" class="btn btn-primary" name="submit" id="delete_form_submit">Удалить</button>
+				<button type="button" class="btn btn-primary" onclick="removeDeletePrompt()">Отмена</button>
+			</form>
+		</div>
+	  </div>
+	</div>
+	<br>
+	<div class="card" id="db_edit">
+	  <div class="card-header" id="form_name">
+		Добавить кружок
+	  </div>
+	  <div class="card-body">
+		<p><strong>* - поля, обязательные для заполнения</strong></p>
+		<form name="activity_form" action="/cabinet/edit_activity_table.php" enctype="multipart/form-data" onsubmit="return validateActivityForm()" method="post" id="student_form">
+			<div class="form-group">
+				<div class="row">
+					<div class="col">
+						<label for="activity_name">Название кружка*</label>
+						<input type="text" class="form-control" id="activity_name" name="activity_name" placeholder="Название">
+					</div>
+					<div class="col">
+						<label for="date_of_creation">Дата открытия*</label>
+						<input type="text" class="form-control" id="date_of_creation" name="date_of_creation" placeholder="ГГГГ-ММ-ДД">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>ФИО преподавателя*</label>
+					<div class="row">
+						<div class="col"><input type="text" class="form-control" id="last_name" name="last_name" placeholder="Фамилия*"></div>
+						<div class="col"><input type="text" class="form-control" id="first_name" name="first_name" placeholder="Имя*"></div>
+						<div class="col"><input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Отчество"></div>
+					</div>
+			</div>
+			<div class="form-group">
+				<div class="row" id="file_upload_manager">
+					<div class="col">
+						<label for="activity_plan">Учебный план:</label>
+						<input type="file" id="activity_plan" name="activity_plan">
+					</div>
+				</div>
+			</div>
+			<input class="form-control" type="text" hidden name="id" id="id" placeholder="Существующее в БД id студента (натуральное число); не менять!" value="0">
+			<input class="form-control" type="text" hidden name="mode" id="mode" placeholder="Режим отправки формы (add, edit); не менять!" value="add">
+			<button type="submit" class="btn btn-primary" name="submit" id="submit">Отправить</button>
+		</form>
+		</div>
+	</div>
